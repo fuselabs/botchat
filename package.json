@@ -13,7 +13,7 @@
     "clean": "rm -rf built",
     "minify": "webpack --optimize-minimize --optimize-dedupe",
     "start": "http-server -p 8000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -42,8 +42,5 @@
     "ts-loader": "^0.8.2",
     "typescript": "^2.0.8",
     "webpack": "^1.13.1"
-  },
-  "scripts": {
-    "test": "mocha"
   }
 }
