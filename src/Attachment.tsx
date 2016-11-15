@@ -98,7 +98,6 @@ export const AttachmentView = (props: {
         case "application/vnd.microsoft.card.video":
             if (!attachment.content || !attachment.content.media || attachment.content.media.length === 0)
                 return null;
-            if(attachment.content.media[0])
             return (
                 <div className='wc-card video'>
                     { videoWithOnLoad(attachment.content.media[0].url, attachment.content.image ? attachment.content.image.url : null, attachment.content.autostart, attachment.content.autoloop) }
