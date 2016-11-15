@@ -42,10 +42,7 @@ export const AttachmentView = (props: {
             { buttons.map(button => <li><button onClick={ () => onClickButton(button.type, button.value) }>{ button.title }</button></li>) }
         </ul>;
 
-    const imageWithOnLoad = (url: string) =>
-        <img src={ url } onLoad={ () => props.onImageLoad() } />;
-
-    const animationWithOnLoad = (url: string, thumbnailUrl?: string, autoPlay?:boolean, loop?: boolean) =>
+    const imageWithOnLoad = (url: string, thumbnailUrl?: string, autoPlay?:boolean, loop?: boolean) =>
         <img src={ url } autoPlay = { autoPlay } loop = { loop } poster = { thumbnailUrl } onLoad={ () => props.onImageLoad() } />;
 
     const audio = (audioUrl: string, autoPlay?:boolean, loop?: boolean) =>
@@ -112,7 +109,7 @@ export const AttachmentView = (props: {
             if (!attachment.content || !attachment.content.media || attachment.content.media.length === 0)
                 return null;
             
-            let contentFunction = isGifMedia(attachment.content.media[0].url) ? animationWithOnLoad : videoWithOnLoad; 
+            let contentFunction = isGifMedia(attachment.content.media[0].url) ? imageWithOnLoad : videoWithOnLoad; 
 
             return (
                 <div className='wc-card animation'>
